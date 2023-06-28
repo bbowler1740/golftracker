@@ -9,6 +9,11 @@ return new class extends Migration {
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('round_id')->constrained()->cascadeOnDelete();
+            $table->string('location');
+            $table->string('name');
+            $table->integer('cost_of_round');
+            $table->string('comments')->nullable();
             $table->timestamps();
         });
     }

@@ -10,8 +10,6 @@ return new class extends Migration {
         Schema::create('rounds', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-//            $table->foreignId('course_id')->constrained()->cascadeOnDelete();
-//            $table->foreignId('weather')->constrained()->cascadeOnDelete();
             $table->integer('score');
             $table->integer('holes_played')->default(18);
             $table->time('tee_off_time')->default(now());

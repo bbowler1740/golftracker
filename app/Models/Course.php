@@ -3,7 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Course extends Model
 {
+    //TODO: Add eloquent relationship to User model
+    public function rounds(): HasMany
+    {
+        return $this->hasMany(Round::class);
+    }
 }
