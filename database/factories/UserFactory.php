@@ -27,13 +27,15 @@ class UserFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
+            'handicap' => $this->faker->numberBetween(-10, 50),
+            'dexterity' => $this->faker->randomElement(['left', 'right']),
+            'height' => $this->faker->numberBetween(0, 300),
+            'weight' => $this->faker->numberBetween(0, 300),
+            'age' => $this->faker->numberBetween(0, 100),
+            'gender'=> $this->faker->randomElement(['male', 'female']),
             'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'two_factor_secret' => null,
-            'two_factor_recovery_codes' => null,
+            'password' => $this->faker->password(),
             'remember_token' => Str::random(10),
-            'profile_photo_path' => null,
-            'current_team_id' => null,
         ];
     }
 
