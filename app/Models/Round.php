@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Round extends Model
 {
-    //TODO: Add eloquent relationship to User model
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
