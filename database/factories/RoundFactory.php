@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Course;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class RoundFactory extends Factory
@@ -11,6 +12,7 @@ class RoundFactory extends Factory
     {
         return [
             'user_id' => $this->faker->numberBetween(1, 10),
+            'course_id' => Course::factory()->create()->id,
             'score' => $this->faker->numberBetween(50, 75),
             'holes_played' => $this->faker->randomElement([6, 9, 12, 18]),
             'tee_off_time' => now(),
