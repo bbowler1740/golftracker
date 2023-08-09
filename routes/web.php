@@ -1,5 +1,12 @@
 <?php
 
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\RoundController;
+use App\Http\Controllers\UserController;
+use App\Models\Course;
+use App\Models\Round;
+use App\Models\User;
+use Database\Seeders\UserSeeder;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +22,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::controller(UserController::class)->group(function () {
+    Route::get('/users/{user}', 'show');
+    Route::get('/users', 'index');
+});
+
+Route::controller(CourseController::class)->group(function () {
+    Route::get('/courses/{course}', 'show');
+    Route::get('/courses', 'index');
+});
+
+Route::controller(RoundController::class)->group(function () {
+    Route::get('/rounds/{round}', 'show');
+    Route::get('/rounds', 'index');
 });
 
 Route::middleware([
