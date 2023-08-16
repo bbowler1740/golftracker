@@ -20,20 +20,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::controller(UserController::class)->group(function () {
-    Route::get('/users/{user}', 'show');
-    Route::get('/users', 'index');
-});
-
-Route::controller(CourseController::class)->group(function () {
-    Route::get('/courses/{course}', 'show');
-    Route::get('/courses', 'index');
-});
-
-Route::controller(RoundController::class)->group(function () {
-    Route::get('/rounds/{round}', 'show');
-    Route::get('/rounds', 'index');
-});
+Route::resources([
+    'users' => UserController::class,
+    'courses' => CourseController::class,
+    'rounds' => RoundController::class
+]);
 
 Route::middleware([
     'auth:sanctum',
