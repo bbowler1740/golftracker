@@ -3,10 +3,6 @@
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\RoundController;
 use App\Http\Controllers\UserController;
-use App\Models\Course;
-use App\Models\Round;
-use App\Models\User;
-use Database\Seeders\UserSeeder;
 use Illuminate\Support\Facades\Route;
 
 /*
